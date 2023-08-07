@@ -4,7 +4,7 @@ import { AppContext } from '../context/AppContext';
 
 const AllocationForm = (props) => {
 
-    const { currency, dispatch } = useContext(AppContext);
+    const { currency, dispatch, remaining } = useContext(AppContext);
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
@@ -24,6 +24,12 @@ const AllocationForm = (props) => {
             });
         }
         else {
+            if (cost > remaining)
+            {
+                alert("The value cannot exceed remaining funds " + currency + remaining);
+                return;
+            }
+
             dispatch({
                 type: 'ADD_EXPENSE',
                 payload: item,
@@ -57,7 +63,7 @@ const AllocationForm = (props) => {
                     <span className="eco" style={{ marginLeft: '2rem', marginRight: '8px'}}></span>
                     
                     <label className="input-group-text" htmlFor="inputGroupSelect02">{currency}</label>
-                    
+
                     <input
                         required='required'
                         type='number'

@@ -23,18 +23,17 @@ const Currency = () => {
         color: '##ffffff',
       };
 
-    const currencyLabel = "Currency (" + ")";
-
     return (
         <div style={{margin: '1rem'}}>
         <div style={{backgroundColor: '#93E499'}}>
         <div style={{marginLeft: '1rem', backgroundColor: '#93E499', color: 'white'}}>
-          <select id="dropdown" style={{color: 'white', backgroundColor: '#93E499'}} onChange={event=>changeCurrency(event.target.value)}> {currencyLabel}
+          Currency(
+          <select id="dropdown" style={{color: 'white', backgroundColor: '#93E499'}} onChange={event=>changeCurrency(event.target.value)}> 
             <option value='$'>$ Dollar</option>
             <option value="£" selected>£ Pound</option>
             <option value="€">€ Euro</option>
             <option value='₹'>₹ Ruppee</option>
-          </select>
+          </select>)
         </div>
         </div>
         </div>
